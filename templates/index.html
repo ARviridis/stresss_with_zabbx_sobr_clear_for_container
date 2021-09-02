@@ -1,0 +1,25 @@
+
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% block app_content %}
+<div style="text-align: center;">
+<h1>test system </h1>
+    <p>
+    <button type="button" class="btn btn-lg btn-success" onclick=location.href="{{ url_for('req') }}">TEST REQUEST</button>
+    </p>
+    <p>
+    <button type="button" class="btn btn-lg btn-success" onclick=location.href="{{ url_for("upl") }}">File directory</button>
+    </p>
+    <p>
+    <button type="button" class="btn btn-lg btn-success"  onclick=location.href="{{ url_for('monitor') }}">SYSTEM MONITOR</button>
+    </p>
+    <p>
+    <button type="button" class="btn btn-lg btn-success"  onclick=location.href="{{ url_for('zabb') }}">dannie otpr for monitoring</button>
+    </p>
+</div>
+{% endblock %}
+</html>
+
+
+

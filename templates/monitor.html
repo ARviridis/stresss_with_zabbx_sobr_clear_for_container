@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "base.html" %}
+{% block app_content %}
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Refresh" content="10" />
+    <style>
+    div { box-sizing: border-box; }
+    .container {
+    width: 100%;
+    display: block;
+    }
+</style>
+</head>
+<title> dd {{ script_version }} </title>
+<body>
+        <div align="right">
+        <H1> system monitor </H1>
+        <H3>
+            <span class="label label-success">
+                Active since {{ active_since }}
+            </span>
+        </H3>
+        <p class="text-info">
+            {{ system }} {{ release }} {{ version }}
+        </p>
+            </div>
+    </p>
+
+    {% for block in blocks %}
+        <div class="container">
+            <H2> {{ block.title }} </H2>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table>
+                      <tr>
+                      <td>
+
+                         <img src="{{ block.graph }}">
+
+                      </td>
+                      <td>
+                      <div class = "container">
+                        <p class="text-primary">
+                            {{ block.data.primary }}
+                        </p>
+                            {% for line in block.data.lines %}
+                                <p class="text-info">
+                                    {{ line }}
+                                </p>
+                            {% endfor %}
+                      </div>
+                      </td>
+                      </tr>
+                      </table>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+{% endblock %}
+
+</html>

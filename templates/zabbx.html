@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="Refresh" content="10" />
+        </head>
+        <h1>zabbx </h1>
+            <script type="text/javascript" src="static/flask_bootstrap/static/jquery.js"></script>
+        <script>
+           setInterval (function () {
+            $.get("/zabbx",
+                function(metrics) {
+                    $("#jum").text(metrics)
+                });
+        },3000)
+        </script>
+
+        <div id="jum" class="jumbotron">{{metrics}}
+
+        </div>
+        <p class="lead">
+            <button type="button" class="btn btn-primary btn-lg"  onclick=location.href="{{ url_for('zabb') }}">Обновить</button>
+           
+        </p>
+
+
+{% endblock %}
+</html>

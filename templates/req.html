@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<script>
+    function d(val)
+        {
+        x = document.getElementsByClassName(val);
+        document.getElementById("{{form.gr_del_num.id}}").value=val;
+        document.getElementById("{{form.gr_del_num1.id}}").value=val;
+        }
+</script>
+<head>
+ <style>
+    div { box-sizing: border-box; }
+    .container {
+    width: 100%;
+    display: block;
+    }
+</style>
+</head>
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block app_content %}
+    <h1>test requests </h1>
+         <form action="" method=post>
+         <h2>table of all</h2>
+          <div style="display: none">
+              {{ form.gr_del_num }}
+              {{ form.gr_del_num1 }}
+          </div>
+         <table class="table table-hover">
+           {% if form.ppb.data == False %}
+              <tr>
+              <th>Object1</th>
+              <th>Object2</th>
+              <th>Object3</th>
+              <th>Object4</th>
+               {% for i in dv %}
+                   <tr>
+                       <td>{{i[1]}}</td>
+                       <td>{{i[2]}}</td>
+                       <td>{{i[3]}}</td>
+                       <td>{{i[4]}}</td>
+                       <td><input id="{{i[0]}}" type="submit" name="del" value='del'  onclick="d(this.id)"><td>
+                       </tr>
+               {% endfor %}
+           {% endif %}
+         {% if form.ppb.data == True %}
+               {% if form.object1.data != '' %}
+               {% for i in dvmypoisk %}
+                   <tr>
+                       <td>{{i[1]}}</td>
+                       <td>{{i[2]}}</td>
+                       <td>{{i[3]}}</td>
+                       <td>{{i[4]}}</td>
+                       <td><input id="{{i[0]}}" type="submit" name="del" value='del'  onclick="d(this.id)"><td>
+                       </tr>
+                     {% endfor %}
+               {% endif %}
+         {% endif %}
+        </table>
+        <h2>table add element</h2>
+           <th>Object1</th></th><td>{{form.object1}}</td></p>
+           <th>Object2</th><td>{{form.object2}}</td></p>
+           <th>Object3</th><td>{{form.object3}}</td></p>
+           <th>Object4</th><td>{{form.object4}}</td></p>
+                           <td>{{form.addb}}</td>
+                           <td>{{form.ppb}}</td>
+                           {% if  form.object1.data != None %}
+                               {{form.ppo}}
+                           {% endif %}
+                           {% if  form.object2.data != None %}
+                               {{form.ppo}}
+                           {% endif %}
+                           {% if  form.object3.data != None %}
+                               {{form.ppo}}
+                           {% endif %}
+                           {% if  form.object4.data != None %}
+                               {{form.ppo}}
+                           {% endif %}
+         </form>
+{% endblock %}
+
+
+
+
+

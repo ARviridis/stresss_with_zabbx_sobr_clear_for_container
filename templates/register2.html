@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>Register</h1>
+
+                 <form action="" method="post">
+                    <br>
+                    <br>
+                    <br>
+                    <label class="form-control-label" for="username">Username</label>
+                    <input class="form-control form-control-sm" name="username" id="username" required>
+                    <label class="form-control-label" for="password">Password</label>
+                    <input class="form-control form-control-sm" type="password" name="password" id="password" required>
+                    <br>
+                    <br>
+                    <input class="btn btn-default" type="submit" value="Register">
+                    </form>
+            <hr />
+        <div><center><a id="sendToLoginLink" href="/login2">вход.</a></center></div>
+        <hr />
+
+{% endblock %}
